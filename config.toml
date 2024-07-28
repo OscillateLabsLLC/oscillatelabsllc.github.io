@@ -1,0 +1,5 @@
+baseURL = 'https://oscillatelabs.net/'
+languageCode = 'en-us'
+title = 'Oscillate Labs'
+theme = ["github.com/theNewDynamic/gohugo-theme-ananke"]
+copyright = "Oscillate Labs"
