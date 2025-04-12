@@ -1,0 +1,10 @@
+baseURL = 'https://oscillatelabs.net/'
+languageCode = 'en-us'
+title = 'Oscillate Labs'
+copyright = "Oscillate Labs"
+
+[params]
+  # Tell the theme to use this image file as the logo in the header
+
+[[imports]]
+path = "github.com/jpanther/congo/v2"

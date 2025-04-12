@@ -1,6 +1,2 @@
-github.com/hugo-sid/hugo-blog-awesome v1.15.0 h1:4j1Z7PBvSiOv3GAGNJ+r8vVhFHV9KN1/tFKUUXosRco=
-github.com/hugo-sid/hugo-blog-awesome v1.15.0/go.mod h1:3XVERF66wgQpTsruOajS5Swr+uvyTzov1acafNaqm1E=
-github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e h1:7gGo4gWBXKqjctzjetYSPhOGJKbVBsNgkiv5oJ3LgJc=
-github.com/theNewDynamic/gohugo-theme-ananke v0.0.0-20240503174335-33fbda0e9d3e/go.mod h1:yY14BLqqh5G61rO81YcJKMHY1rClY5iIiUK+K2JKSUM=
-github.com/willfaught/paige v0.91.0 h1:ZcA5CdmMLlxzA8yUauYhjN0BpW2xzl13OfXe8NIEu04=
-github.com/willfaught/paige v0.91.0/go.mod h1:0Nt8ifl7UVYQIBaMtpZmg+BrQHHzFNqKcrBoA2Oo4/E=
+github.com/jpanther/congo/v2 v2.11.0 h1:whwuUIn20egAPfMR3HaFu7sW7/rz096bz26sgpsUAwk=
+github.com/jpanther/congo/v2 v2.11.0/go.mod h1:1S7DRoO1ZYS4YUdFd1LjTkdyjQwsjFWd8TqSfz3Jd+M=
