@@ -15,19 +15,14 @@
 # https://gohugo.io/content-management/menus/
 
 [[main]]
+  name = "Open Source"
+  pageRef = "projects"
+  weight = 5
+
+[[main]]
   name = "Blog"
   pageRef = "posts"
   weight = 10
-
-[[main]]
-  name = "Categories"
-  pageRef = "categories"
-  weight = 20
-
-[[main]]
-  name = "Tags"
-  pageRef = "tags"
-  weight = 30
 
 [[main]]
   identifier = "search"

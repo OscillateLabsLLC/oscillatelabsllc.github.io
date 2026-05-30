@@ -1,0 +1,118 @@
+/* Oscillate Labs — homepage hero & capability cards.
+   Plain CSS (never purged by Tailwind), using Congo's CSS variables. */
+
+.ol-hero {
+  margin: 0 auto 4rem;
+  max-width: 56rem;
+  text-align: center;
+}
+.ol-hero__headline {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  font-weight: 800;
+  letter-spacing: -0.025em;
+}
+@media (min-width: 640px) {
+  .ol-hero__headline { font-size: 3rem; }
+}
+@media (min-width: 768px) {
+  .ol-hero__headline { font-size: 3.5rem; }
+}
+.ol-hero__subhead {
+  margin: 1.5rem auto 0;
+  max-width: 40rem;
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: rgb(var(--color-neutral-600));
+}
+.dark .ol-hero__subhead { color: rgb(var(--color-neutral-400)); }
+
+.ol-cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+.ol-btn {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.15s ease;
+}
+.ol-btn--primary {
+  background-color: rgb(var(--color-primary-700));
+  color: rgb(var(--color-neutral-50));
+}
+.ol-btn--primary:hover {
+  background-color: rgb(var(--color-primary-600));
+}
+.ol-btn--secondary {
+  border: 1px solid rgb(var(--color-neutral-300));
+  color: rgb(var(--color-neutral-700));
+}
+.ol-btn--secondary:hover {
+  border-color: rgb(var(--color-primary-500));
+  color: rgb(var(--color-primary-600));
+}
+.dark .ol-btn--primary {
+  background-color: rgb(var(--color-primary-600));
+  color: rgb(var(--color-neutral-50));
+}
+.dark .ol-btn--primary:hover { background-color: rgb(var(--color-primary-500)); }
+.dark .ol-btn--secondary {
+  border-color: rgb(var(--color-neutral-700));
+  color: rgb(var(--color-neutral-200));
+}
+.dark .ol-btn--secondary:hover {
+  border-color: rgb(var(--color-primary-400));
+  color: rgb(var(--color-primary-300));
+}
+
+.ol-cards {
+  margin: 0 auto 4rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+@media (min-width: 640px) {
+  .ol-cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (min-width: 1024px) {
+  .ol-cards { grid-template-columns: repeat(3, 1fr); }
+}
+.ol-card {
+  border-radius: 0.75rem;
+  border: 1px solid rgb(var(--color-neutral-200));
+  background-color: rgb(var(--color-neutral-50));
+  padding: 1.5rem;
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.ol-card:hover {
+  border-color: rgb(var(--color-primary-400));
+  transform: translateY(-2px);
+}
+.dark .ol-card {
+  border-color: rgb(var(--color-neutral-800));
+  background-color: rgba(var(--color-neutral-900), 0.6);
+}
+.ol-card__title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: rgb(var(--color-neutral-800));
+}
+.dark .ol-card__title { color: rgb(var(--color-neutral-100)); }
+.ol-card__body {
+  margin-top: 0.5rem;
+  font-size: 0.925rem;
+  line-height: 1.6;
+  color: rgb(var(--color-neutral-600));
+}
+.dark .ol-card__body { color: rgb(var(--color-neutral-400)); }
+.ol-card__body a { color: rgb(var(--color-primary-600)); text-decoration: underline; }
+.dark .ol-card__body a { color: rgb(var(--color-primary-300)); }

@@ -1,0 +1,40 @@
+/* Oscillate Labs scheme — navy brand (#000060) with a warm slate neutral and a cyan-teal accent for dark mode legibility */
+:root {
+  --color-neutral: 255, 255, 255;
+  /* Slate (cool gray) */
+  --color-neutral-50: 248, 250, 252;
+  --color-neutral-100: 241, 245, 249;
+  --color-neutral-200: 226, 232, 240;
+  --color-neutral-300: 203, 213, 225;
+  --color-neutral-400: 148, 163, 184;
+  --color-neutral-500: 100, 116, 139;
+  --color-neutral-600: 71, 85, 105;
+  --color-neutral-700: 51, 65, 85;
+  --color-neutral-800: 30, 41, 59;
+  --color-neutral-900: 15, 23, 42;
+  --color-neutral-950: 8, 11, 26;
+  /* Primary — Oscillate navy/indigo, anchored on the #000060 brand color (≈ primary-950) */
+  --color-primary-50: 235, 238, 252;
+  --color-primary-100: 214, 220, 250;
+  --color-primary-200: 173, 184, 244;
+  --color-primary-300: 132, 147, 238;
+  --color-primary-400: 91, 110, 231;
+  --color-primary-500: 58, 74, 200;
+  --color-primary-600: 40, 52, 160;
+  --color-primary-700: 28, 37, 122;
+  --color-primary-800: 18, 24, 92;
+  --color-primary-900: 10, 14, 66;
+  --color-primary-950: 0, 0, 96;
+  /* Secondary — cyan/teal accent (reads well on the dark navy, complements the cool primary) */
+  --color-secondary-50: 236, 254, 255;
+  --color-secondary-100: 207, 250, 254;
+  --color-secondary-200: 165, 243, 252;
+  --color-secondary-300: 103, 232, 249;
+  --color-secondary-400: 34, 211, 238;
+  --color-secondary-500: 6, 182, 212;
+  --color-secondary-600: 8, 145, 178;
+  --color-secondary-700: 14, 116, 144;
+  --color-secondary-800: 21, 94, 117;
+  --color-secondary-900: 22, 78, 99;
+  --color-secondary-950: 8, 51, 68;
+}

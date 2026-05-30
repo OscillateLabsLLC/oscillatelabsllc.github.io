@@ -1,16 +1,15 @@
-languageCode = "en"
-languageName = "English"
-languageDirection = "ltr"
+locale = "en-US"
+label = "English"
+direction = "ltr"
 weight = 1
 
 title = "Oscillate Labs"
-# copyright = "© 2024-2025 Oscillate Labs"
+copyright = "© 2024–2026 Oscillate Labs LLC"
 
 [params]
   dateFormat = "2 January 2006"
-
-  # mainSections = ["section1", "section2"]
-  # description = "My awesome website"
+  mainSections = ["posts"]
+  description = "A software studio building custom apps, AI integrations, and private voice assistants — software that amplifies your intelligence and keeps your data yours."
 
 [params.author]
   name = "Oscillate Labs"
@@ -18,8 +17,6 @@ title = "Oscillate Labs"
   # headline = ""
   # bio = ""
   links = [
-    { github = "https://github.com/OscillateLabsLLC" }
-  #   { email = "mailto:hello@your_domain.com" },
-  #   { link = "https://link-to-some-website.com/" },
-  #   { x-twitter = "https://twitter.com/your_username" },
+    { github = "https://github.com/OscillateLabsLLC" },
+    { email = "mailto:mike@oscillatelabs.net" },
   ]

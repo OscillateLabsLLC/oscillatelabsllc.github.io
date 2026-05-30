@@ -1,0 +1,37 @@
+{{/* Oscillate Labs custom homepage: hero + capability cards, then page content. */}}
+
+{{ $hero := .Params.hero }}
+{{ $caps := .Params.capabilities }}
+
+<section class="ol-hero">
+  <h1 class="ol-hero__headline">
+    {{ with $hero.headline }}{{ . | markdownify }}{{ else }}{{ $.Site.Title }}{{ end }}
+  </h1>
+  {{ with $hero.subhead }}
+    <p class="ol-hero__subhead">{{ . | markdownify }}</p>
+  {{ end }}
+  {{ with $hero.cta }}
+    <div class="ol-cta">
+      {{ range . }}
+        <a href="{{ .url }}" class="ol-btn {{ if .primary }}ol-btn--primary{{ else }}ol-btn--secondary{{ end }}">{{ .label }}</a>
+      {{ end }}
+    </div>
+  {{ end }}
+</section>
+
+{{ with $caps }}
+  <section class="ol-cards">
+    {{ range . }}
+      <div class="ol-card">
+        {{ with .title }}<h3 class="ol-card__title">{{ . }}</h3>{{ end }}
+        {{ with .body }}<div class="ol-card__body">{{ . | markdownify }}</div>{{ end }}
+      </div>
+    {{ end }}
+  </section>
+{{ end }}
+
+{{ with .Content }}
+  <article class="prose max-w-full dark:prose-invert">
+    {{ . | emojify }}
+  </article>
+{{ end }}
