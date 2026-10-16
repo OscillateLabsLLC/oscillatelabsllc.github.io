@@ -60,3 +60,10 @@ These are small Python clients with few dependencies. Each is published to PyPI 
 - **[kiwix-mcp](https://github.com/OscillateLabsLLC/kiwix-mcp)** turns a [Kiwix](https://kiwix.org) library into a local knowledge store your AI assistant can search: Wikipedia, Stack Exchange, medical and technical references, and more, served from your own machine and available when the internet isn't. It also ships an OVOS integration - Mike runs this one at home. `pip install kiwix-mcp`
 - **[ha-http-client](https://github.com/OscillateLabsLLC/home-assistant-client)** is a zero-dependency client for the [Home Assistant](https://www.home-assistant.io/) REST API, with an `ha-client` CLI and a Claude Code skill. `pip install ha-http-client`
 - **[music-assistant-client](https://github.com/OscillateLabsLLC/music-assistant-client)** is a lightweight client for the [Music Assistant](https://music-assistant.io) API, with a Claude skill for media control. `pip install ma-http-client`
+
+## Friends
+
+We work closely with these projects. Most of our voice work is built on them.
+
+- **[OpenVoiceOS](https://www.openvoiceos.org/)** is the community-run, open-source voice assistant at the center of our voice work. Our Rust message bus is its default for new installations. [Source code](https://github.com/OpenVoiceOS)
+- **[Neon AI](https://neon.ai/)** builds a private voice assistant on top of OVOS. We built the Neon Hub installers and the Neon Node app with them. [Source code](https://github.com/NeonGeckoCom)
