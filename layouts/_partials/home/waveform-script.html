@@ -1,0 +1,58 @@
+{{/* Animates the hero's .ol-wave lines like a slow oscilloscope trace.
+     Holds still for prefers-reduced-motion and pauses while the hero is off screen. */}}
+<script>
+  (() => {
+    const svg = document.currentScript.previousElementSibling;
+    const paths = svg.querySelectorAll("path");
+    const WIDTH = 1200;
+    const MID = 150;
+    const STEP = 6;
+
+    // cycles across the width, amplitude in viewBox units, radians per second, phase offset
+    const WAVES = [
+      { cycles: 2.2, amp: 70, speed: 0.35, offset: 0 },
+      { cycles: 3.1, amp: 45, speed: -0.5, offset: 1.7 },
+      { cycles: 1.4, amp: 95, speed: 0.22, offset: 3.4 },
+    ];
+
+    // 0 below edge0, 1 above edge1, smooth in between
+    const smoothstep = (edge0, edge1, t) => {
+      const k = Math.min(Math.max((t - edge0) / (edge1 - edge0), 0), 1);
+      return k * k * (3 - 2 * k);
+    };
+
+    const tracePath = (wave, seconds) => {
+      const breathe = 0.75 + 0.25 * Math.sin(seconds * 0.4 + wave.offset);
+      let d = "";
+      for (let x = 0; x <= WIDTH; x += STEP) {
+        const t = x / WIDTH;
+        // flat under the hero text on the left, swelling to the right, pinched at the far edge
+        const taper = smoothstep(0.3, 0.75, t) * (1 - smoothstep(0.85, 1, t));
+        const y = MID + wave.amp * breathe * taper * Math.sin(2 * Math.PI * wave.cycles * t + wave.offset + seconds * wave.speed);
+        d += (x === 0 ? "M" : "L") + x + " " + y.toFixed(1);
+      }
+      return d;
+    };
+
+    const draw = (seconds) => {
+      WAVES.forEach((wave, i) => paths[i].setAttribute("d", tracePath(wave, seconds)));
+    };
+
+    draw(0);
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let frame = null;
+    const tick = (ms) => {
+      draw(ms / 1000);
+      frame = requestAnimationFrame(tick);
+    };
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting && frame === null) {
+        frame = requestAnimationFrame(tick);
+      } else if (!entry.isIntersecting && frame !== null) {
+        cancelAnimationFrame(frame);
+        frame = null;
+      }
+    }).observe(svg);
+  })();
+</script>
