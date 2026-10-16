@@ -3,6 +3,12 @@
 {{ $hero := .Params.hero }}
 
 <section class="ol-hero">
+  <svg class="ol-wave" viewBox="0 0 1200 300" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="ol-wave__line ol-wave__line--a" />
+    <path class="ol-wave__line ol-wave__line--b" />
+    <path class="ol-wave__line ol-wave__line--c" />
+  </svg>
+  {{ partial "home/waveform-script.html" . }}
   <h1 class="ol-hero__headline">
     {{ with $hero.headline }}{{ . | markdownify }}{{ else }}{{ $.Site.Title }}{{ end }}
   </h1>
