@@ -1,7 +1,6 @@
-{{/* Oscillate Labs custom homepage: hero + capability cards, then page content. */}}
+{{/* Oscillate Labs custom homepage: hero, capabilities, selected work, then page content. */}}
 
 {{ $hero := .Params.hero }}
-{{ $caps := .Params.capabilities }}
 
 <section class="ol-hero">
   <h1 class="ol-hero__headline">
@@ -19,19 +18,40 @@
   {{ end }}
 </section>
 
-{{ with $caps }}
-  <section class="ol-cards">
+{{ with .Params.capabilities }}
+  <section class="ol-caps">
     {{ range . }}
-      <div class="ol-card">
-        {{ with .title }}<h3 class="ol-card__title">{{ . }}</h3>{{ end }}
-        {{ with .body }}<div class="ol-card__body">{{ . | markdownify }}</div>{{ end }}
+      <div class="ol-cap">
+        <h2 class="ol-cap__title">{{ .title }}</h2>
+        <div class="ol-cap__body">{{ .body | markdownify }}</div>
       </div>
     {{ end }}
   </section>
 {{ end }}
 
+{{ with .Params.work }}
+  <section class="ol-work">
+    <h2 class="ol-section-label">Selected work</h2>
+    <ul class="ol-work__list">
+      {{ range . }}
+        <li class="ol-work__item">
+          <div class="ol-work__head">
+            <a class="ol-work__name" href="{{ .url }}">{{ .name }}</a>
+            <span class="ol-work__kind">{{ .kind }}</span>
+          </div>
+          <div class="ol-work__body">{{ .body | markdownify }}</div>
+          <div class="ol-work__meta">{{ .meta }}</div>
+        </li>
+      {{ end }}
+    </ul>
+    <p class="ol-work__more">
+      <a href="/projects/">All our open source</a> · <a href="https://github.com/OscillateLabsLLC">GitHub</a>
+    </p>
+  </section>
+{{ end }}
+
 {{ with .Content }}
-  <article class="prose max-w-full dark:prose-invert">
-    {{ . | emojify }}
+  <article class="ol-contact prose max-w-full dark:prose-invert">
+    {{ . }}
   </article>
 {{ end }}

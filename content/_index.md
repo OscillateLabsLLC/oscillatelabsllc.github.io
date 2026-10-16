@@ -1,43 +1,66 @@
 ---
 title: "Oscillate Labs"
-description: "A software studio building custom apps, AI integrations, and private voice assistants — software that amplifies your intelligence and keeps your data yours."
+description: "A small software studio building cross-platform apps, private voice assistants, and AI integrations that run on hardware you own."
 
 hero:
-  headline: "Custom software, built to serve you — not advertisers."
-  subhead: "Oscillate Labs is a software studio. We build cross-platform apps, AI integrations, and private voice assistants — and take them from idea to shipped product."
+  headline: "Apps, voice assistants, and AI tools that run on your own hardware."
+  subhead: "Oscillate Labs is a small software studio. We take projects from idea to shipped product, and we publish a lot of our work as open source."
   cta:
-    - label: "Work with us →"
+    - label: "Email us about a project"
       url: "mailto:mike@oscillatelabs.net"
       primary: true
-    - label: "See our open source"
+    - label: "Open source"
       url: "/projects/"
       primary: false
 
 capabilities:
   - title: "Cross-platform apps"
-    body: "One codebase for macOS, iOS, Android, Windows, and Linux, built with Flutter."
-  - title: "Write-once AI integrations"
-    body: "One well-tested client, exposed everywhere it's useful — as a Python library, a CLI, an [MCP](https://modelcontextprotocol.io) server, and a Claude skill. A pattern very few teams ship."
-  - title: "Private, local AI & voice"
-    body: "Assistants and agents that run on hardware you own, so your data stays yours."
+    body: "One Flutter codebase for iOS, Android, macOS, Windows, and Linux. BookTrove and Neon Node both ship this way."
+  - title: "AI integrations"
+    body: "We write one well-tested client and ship it as a Python library, a CLI, an [MCP](https://modelcontextprotocol.io) server, and a Claude skill."
+  - title: "Private voice and AI"
+    body: "Voice assistants and agents built on [OVOS](https://www.openvoiceos.org/) and [Neon AI](https://neon.ai/) that keep your data on your own machines."
+
+work:
+  - name: "BookTrove"
+    url: "/booktrove/support/"
+    kind: "Product"
+    meta: "Flutter · in beta"
+    body: "Watches used-book prices for your want-to-read list and tells you when a book drops below your target. No account and no server. Your data stays on your device."
+  - name: "Neon Node"
+    url: "https://neon.ai/"
+    kind: "Client work"
+    meta: "Flutter · for Neon AI"
+    body: "The voice client app for Neon AI's private assistant on iOS, Android, and macOS, with an on-device wake word and voice commands that act on the device itself."
+  - name: "Neon Hub"
+    url: "https://github.com/NeonGeckoCom/neon-hub-installer"
+    kind: "Client work"
+    meta: "Docker · for Neon AI"
+    body: "Installers for Neon AI's self-hosted assistant server on Linux, macOS, and Windows, plus a guide for running it on a cloud server and a bootable Debian image."
+  - name: "Switchboard"
+    url: "https://github.com/OscillateLabsLLC/switchboard"
+    kind: "Open source"
+    meta: "Python · OVOS"
+    body: "Picks which skill should handle a voice request, and stays quiet when the speech wasn't meant for the assistant. On held-out household traffic it handled 84% of real requests correctly, against 42% for stock OVOS. [The data and code behind that number are public.](https://github.com/OscillateLabsLLC/switchboard-eval)"
+  - name: "Home Assistant, both directions"
+    url: "https://github.com/OscillateLabsLLC/skill-homeassistant"
+    kind: "Open source"
+    meta: "Python · Home Assistant"
+    body: "A [skill](https://github.com/OscillateLabsLLC/skill-homeassistant) that lets OVOS and Neon control your smart home by voice, and our most popular repo. Plus a [HACS integration](https://github.com/OscillateLabsLLC/ha-neon-hub) that goes the other way, plugging a Neon Hub's speech-to-text, text-to-speech, and conversation agent into Home Assistant's Assist. By our own assessment, it meets every rule of Home Assistant's integration quality scale through Platinum."
+  - name: "OVOS message bus in Rust"
+    url: "https://github.com/OscillateLabsLLC/ovos-rust-messagebus"
+    kind: "Open source"
+    meta: "Rust · OVOS, Neon"
+    body: "A Rust implementation of the message bus that connects OVOS and Neon components. OVOS made it the default for new installations shortly after its release."
+  - name: "Engram"
+    url: "https://github.com/OscillateLabsLLC/engram"
+    kind: "Open source"
+    meta: "Go · MCP"
+    body: "Long-term memory for AI agents. Memories are stored as events with no LLM in the write path, so an agent can't rewrite its own history. We use this one daily in our own agents."
 ---
 
 ## Work with us
 
-Have a project in mind? We take on a small number of client engagements at a time. Tell us what you're trying to build and we'll tell you honestly whether we're the right fit.
+We take on a few client projects at a time. Tell us what you want to build, and we'll tell you honestly whether we're the right fit.
 
-We believe the best software is built for the user, not for someone else's ad network — and we use AI where it amplifies your capabilities, not as a buzzword.
-
-[Email us about your project](mailto:mike@oscillatelabs.net)
-
-## Things we've built
-
-**[BookTrove](/booktrove/support/)** — a book price tracker for readers who buy physical books. Import your want-to-read list, watch used-book prices, and get alerts when a book drops below your target. No account, no servers — your data stays on your device. Currently in beta.
-
-We also build a lot in the open:
-
-- **[Engram](https://github.com/OscillateLabsLLC/engram)** — an event-sourced memory system for AI agents, with no LLM in the write path.
-- **[kiwix-mcp](https://github.com/OscillateLabsLLC/kiwix-mcp)**, **[ha-http-client](https://github.com/OscillateLabsLLC/home-assistant-client)**, and **[music-assistant-client](https://github.com/OscillateLabsLLC/music-assistant-client)** — client libraries that double as MCP servers and Claude skills.
-- A family of **[OVOS / Neon](https://www.openvoiceos.org/) voice plugins and skills** — TTS engines, dialog transformers, and smart-home control.
-
-[See all our open source →](/projects/) · [Oscillate Labs on GitHub](https://github.com/OscillateLabsLLC)
+[mike@oscillatelabs.net](mailto:mike@oscillatelabs.net)
