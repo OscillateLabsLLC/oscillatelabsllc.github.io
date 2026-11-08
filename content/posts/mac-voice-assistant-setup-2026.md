@@ -26,16 +26,13 @@ categories: ["personal voice assistant"]
 ## Make it feel native
 
 - **[PHAL-plugin-mac](https://github.com/OscillateLabsLLC/ovos-phal-plugin-mac):** system commands, fake ducking for OCP/ovos-media, barge-in volume adjustment, GUI buttons, and service management. Needs `skill-ovos-volume`. Most system commands need a sudoers entry (show the snippet, and explain the security trade-off).
-- **ovos-mac-control:** fast on/off for a native install. It fills the gaps in ovos-installer's per-service launchd helper.
+- **[ovos-mac-control](https://github.com/OscillateLabsLLC/ovos-mac-control):** fast on/off for a native install. It fills the gaps in ovos-installer's per-service launchd helper.
   - `ovosctl start|stop|toggle|status`: one command for all five services. `stop` waits for a full shutdown, and the stopped state persists across reboots.
   - **Menu bar switch:** a SwiftBar plugin. 🎙 when everything is up, `🎙 n/5` when partly up, 🎙⚪️ when stopped. The dropdown has start, stop, and restart for each service, and opens its logs in Console.app.
   - **Config that survives upgrades:** the installer rewrites `mycroft.conf` on every run. Keep hand edits in `mycroft.conf.overlay.json`. `ovosctl upgrade` merges them back, and `ovosctl conf` reports drift.
   - **Log rotation:** the logs had grown to 260MB unrotated.
   - **Upgrade wrapper:** `ovosctl upgrade --branch` tests an installer branch. It also handles three gotchas: a virtualenv on `PATH`, pinning `OVOS_VENV_PYTHON`, and root-owned Ansible files.
   - **Visage and the GUI as LaunchAgents:** they stay up when OVOS stops, and reconnect when it comes back (`ovosctl gui install`).
-
-> **TODO (Mike):** ovos-mac-control is on your private Forgejo. Publish it to OscillateLabsLLC (or a public mirror) before this post goes out, so readers can install it. Then link it here.
-
 > **TODO (Mike):** Its README says "tested on Sonoma 14.6.1". Update that if you've run it on a newer macOS.
 
 ## A face: Visage
