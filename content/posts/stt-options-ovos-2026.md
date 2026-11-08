@@ -83,25 +83,23 @@ If you'd rather build your own, OVOS provides [ovos-stt-server](https://github.c
 | Plugin | Notes |
 | --- | --- |
 | [Vosk](https://github.com/OpenVoiceOS/ovos-stt-plugin-vosk) | Small and CPU-friendly, but not accurate enough for general STT. It is still the best way to make a custom wake word without training a model. |
-| [Pocketsphinx](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx) | Still updated, but only for legacy setups. |
+| [Pocketsphinx](https://github.com/OpenVoiceOS/ovos-stt-plugin-pocketsphinx) | Still maintained, but its own README calls it "very low accuracy and NOT recommended." |
 | [Chromium](https://github.com/OpenVoiceOS/ovos-stt-plugin-chromium) | Uses an unofficial Google API. Fast, but Google doesn't support it and it isn't private. |
 | [Azure](https://github.com/OpenVoiceOS/ovos-stt-plugin-azure) | Microsoft's cloud STT. High quality and usage-priced, but not private. |
 
-> **TODO (Mike):** Confirm the Pocketsphinx line. The repo is active (last push October 2026), but I don't know whether it's still used for anything besides legacy setups.
-
 ## Archived since 2024
 
-These plugins from the 2024 post are now archived. Don't start new setups with them.
+These plugins from the 2024 post are now archived. Don't start new setups with them. Most of them name a replacement:
 
-- **Meta MMS** ([ovos-stt-plugin-mms](https://github.com/OpenVoiceOS/ovos-stt-plugin-mms))
-- **Nòs**, Galician ([ovos-stt-plugin-nos](https://github.com/OpenVoiceOS/ovos-stt-plugin-nos))
-- **HiTZ**, Basque ([ovos-stt-plugin-HiTZ](https://github.com/OpenVoiceOS/ovos-stt-plugin-HiTZ))
-- **Iberian FasterWhisper** ([ovos-stt-plugin-fasterwhisper-zuazo](https://github.com/OpenVoiceOS/ovos-stt-plugin-fasterwhisper-zuazo))
-- **projectAINA-remote**, Catalan ([ovos-stt-plugin-projectAINA-remote](https://github.com/OpenVoiceOS/ovos-stt-plugin-projectAINA-remote))
+| Archived plugin | Use instead |
+| --- | --- |
+| [Meta MMS](https://github.com/OpenVoiceOS/ovos-stt-plugin-mms) | [wav2vec2](https://github.com/OpenVoiceOS/ovos-stt-plugin-wav2vec2). The repo has a migration guide. |
+| [Nòs](https://github.com/OpenVoiceOS/ovos-stt-plugin-nos) (Galician) | wav2vec2, with the same Proxecto Nós model. |
+| [HiTZ](https://github.com/OpenVoiceOS/ovos-stt-plugin-HiTZ) (Basque) | onnx-asr with `OpenVoiceOS/stt-eu-conformer-ctc-large-onnx`. These are ONNX exports of the same HiTZ models, and they run on a CPU. NeMo also works if you have a GPU. |
+| [Iberian FasterWhisper](https://github.com/OpenVoiceOS/ovos-stt-plugin-fasterwhisper-zuazo) | No named replacement. whisper-lm uses the same Zuazo fine-tuned Whisper models. |
+| [projectAINA-remote](https://github.com/OpenVoiceOS/ovos-stt-plugin-projectAINA-remote) (Catalan) | No named replacement. whisper-lm has a Catalan language model. |
 
-For the Iberian languages, use whisper-lm or a multilingual model in onnx-asr instead.
-
-> **TODO (Mike):** Check that suggestion. I'm basing it on whisper-lm's README listing Basque, Galician, Catalan, and Spanish. I haven't tested onnx-asr's multilingual models on those languages.
+whisper-lm is heavy. Its language models are 8 to 20 GB each, it supports only Python 3.11 or older, and pairing it with an LLM needs a GPU with a lot of memory.
 
 ## What about Neon's plugins?
 

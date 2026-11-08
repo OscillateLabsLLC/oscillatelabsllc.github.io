@@ -23,20 +23,36 @@ This post covers what to pick, the full list of maintained plugins as of Novembe
 | Raspberry Pi, on-device | [phoonnx](https://github.com/TigreGotico/phoonnx) | The OVOS default. Runs Piper voices and several other model types through ONNX. |
 | Most natural voice on a CPU | [Kokoro](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro) on a server | Natural voices in 9 languages, faster than real time on a modern CPU. |
 | Apple Silicon, or you want voice cloning | [Pocket TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-pocket-tts) | CPU-only, about 6x real time on Apple Silicon, clones a voice from a sample. |
-| Rare languages, or a voice from a description | [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | 600+ languages. Designs a voice from a text description or clones one from a clip. |
 | You don't mind the cloud | [Edge TTS](https://github.com/OpenVoiceOS/ovos-tts-plugin-edge-tts) | Microsoft's Edge voices. Fast and good, but needs the internet and isn't private. |
 
 Disclosure: Oscillate Labs maintains the Kokoro and Pocket TTS plugins. I use Kokoro every day.
-
-OmniVoice runs on a CPU or a GPU. A GPU only makes it faster. It is a heavy install, though: PyTorch plus a multi-gigabyte model, and it generates speech in several diffusion steps. Run it on a server, not on a Pi.
-
 ## Moving from Piper
 
 The Piper plugin ([ovos-tts-plugin-piper](https://github.com/OpenVoiceOS/ovos-tts-plugin-piper)) is archived. Piper support now lives in phoonnx, which also runs Matcha, GlowTTS, MMS, and other models. Install it with `pip install phoonnx`. You still need `espeak-ng` from your OS package manager, as before. Voice IDs use the format `piper/<lang_code>-<name>`.
 
-The Piper repo's README has the [full config mapping](https://github.com/OpenVoiceOS/ovos-tts-plugin-piper#readme) from the old plugin to phoonnx.
+Change the module and the voice ID in `mycroft.conf`. Before:
 
-> **TODO (Mike):** Consider pasting a before/after config snippet here from the migration guide, so readers don't have to click through.
+```json
+"tts": {
+  "module": "ovos-tts-plugin-piper",
+  "ovos-tts-plugin-piper": {
+    "voice": "alan-low"
+  }
+}
+```
+
+After:
+
+```json
+"tts": {
+  "module": "ovos-tts-plugin-phoonnx",
+  "ovos-tts-plugin-phoonnx": {
+    "voice": "piper/en_GB-alan-low"
+  }
+}
+```
+
+If you leave `voice` unset, phoonnx picks the best voice for your language. phoonnx's [VOICES.md](https://github.com/TigreGotico/phoonnx/blob/dev/VOICES.md) lists every voice ID. The Piper repo's README covers [local model files and remote URLs](https://github.com/OpenVoiceOS/ovos-tts-plugin-piper#readme).
 
 ## Run TTS on a server
 
@@ -53,7 +69,7 @@ OVOS also provides [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-ser
 | [phoonnx](https://github.com/TigreGotico/phoonnx) | The OVOS default and Piper's successor. Multilingual phonemization plus Piper, Matcha, GlowTTS, MMS, and other ONNX models. |
 | [Kokoro](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro) | hexgrad's 82M-parameter multilingual model. Needs `espeak-ng`. Sends timed visemes, so a Mark 1 mouth stays in sync with no G2P plugin. |
 | [Pocket TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-pocket-tts) | Kyutai's 100M-parameter, CPU-only model. Clones voices from audio samples. |
-| [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | k2-fsa's zero-shot model for 600+ languages. Picks a voice automatically, designs one from a text description, or clones a reference clip. CPU or GPU, and a Docker image is available. |
+| [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | k2-fsa's zero-shot model for 600+ languages. Picks a voice automatically, designs one from a text description, or clones a reference clip. New in 2026 and still alpha. A heavy install (PyTorch plus a multi-gigabyte model), so run it on a server. I haven't tried it. |
 | [Coqui](https://github.com/OpenVoiceOS/ovos-tts-plugin-coqui) | The Coqui company is gone, but this plugin is still maintained. Best with a GPU. |
 
 ### Lightweight and robotic
@@ -90,9 +106,13 @@ OVOS also provides [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-ser
 
 ### Post-processing
 
-OVOS also has TTS *transformers* that process audio after synthesis. They include [sox effects](https://github.com/OpenVoiceOS/ovos-tts-transformer-sox-plugin) and audio super-resolution models ([AudioSR](https://github.com/OpenVoiceOS/ovos-tts-transformer-audiosr), [FlashSR](https://github.com/OpenVoiceOS/ovos_tts_transformer_FlashSR), [NovaSR](https://github.com/OpenVoiceOS/ovos_tts_transformer_NovaSR)).
+OVOS also has TTS *transformers* that process audio after synthesis and before playback, so they work with any TTS plugin. They include [sox effects](https://github.com/OpenVoiceOS/ovos-tts-transformer-sox-plugin) and three super-resolution transformers. Those upscale low-sample-rate voices (such as Piper's `low` voices) to 48 kHz, so speech sounds brighter and less muffled:
 
-> **TODO (Mike):** I'm describing the AudioSR, FlashSR, and NovaSR transformers from their names and the AudioSR model. Confirm they upscale TTS output before this ships.
+- [FlashSR](https://github.com/OpenVoiceOS/ovos_tts_transformer_FlashSR): ONNX, uses a GPU if one is available, otherwise runs on a CPU. The light option.
+- [AudioSR](https://github.com/OpenVoiceOS/ovos-tts-transformer-audiosr): pure ONNX, with no PyTorch at runtime. If the upscale fails, you get the original audio.
+- [NovaSR](https://github.com/OpenVoiceOS/ovos_tts_transformer_NovaSR): PyTorch. Its own README recommends FlashSR as the lighter choice.
+
+I haven't tried them. If your TTS already outputs 48 kHz audio, they do nothing.
 
 ## Archived since 2024
 
@@ -101,10 +121,8 @@ These plugins are now archived. Don't start new setups with them.
 - **Piper**: moved into phoonnx (see [above](#moving-from-piper)).
 - **Mimic 2, Mimic 3, and the Mimic 3 server**: use phoonnx or Kokoro.
 - **Nòs** (Galician) and **Cotovia remote**: use Cotovia.
-- **Matxa** (Catalan multi-speaker).
-- **Lux**.
-
-> **TODO (Mike):** Add replacements for Matxa (Catalan) and Lux if you know them. OmniVoice or phoonnx's MMS voices may cover Catalan.
+- **Matxa** (Catalan multi-speaker): moved into phoonnx. The same model is `OpenVoiceOS/matxa-cat-multispeaker-vocos-2stage`, and you pick a speaker with `speaker_id`. The [Matxa repo](https://github.com/OpenVoiceOS/ovos-tts-plugin-matxa-multispeaker-cat) maps the old voices to speaker IDs.
+- **Lux**: a voice-cloning plugin built on ZipVoice. Its repo doesn't name a replacement. For voice cloning, use Pocket TTS.
 
 ## What about Neon's plugins?
 
