@@ -1,6 +1,6 @@
 ---
 title: Mycroft Mark II teardown and Pi upgrade/replacement
-author: "Mike Gray"
+author: "Chance Rosenthal"
 date: "2023-12-03"
 description: a Mycroft Mark II is torn down to the daughter board and chassis
 draft: false
