@@ -16,7 +16,7 @@ categories: ["home automation", "personal voice assistant", "home assistant"]
 ---
 
 {{< alert >}}
-**Update.** Sending messages straight to the OVOS message bus is no longer the recommended approach. For Home Assistant control, use [skill-homeassistant](https://github.com/OscillateLabsLLC/skill-homeassistant).
+**Update.** Sending messages straight to the OVOS message bus is not a recommended approach. Generally, you should proxy the bus behind a tool like HiveMind or Neon Hub. For general Home Assistant control, use [skill-homeassistant](https://github.com/OscillateLabsLLC/skill-homeassistant). Watch this space for updates on Neon Hub integration with Home Assistant!
 {{< /alert >}}
 
 Home Assistant has a [Mycroft integration available](https://www.home-assistant.io/integrations/mycroft/), but it is quite old, and as Neon and OVOS continue to separate from the original codebase it will become less functional. Additionally, it is not following Home Assistant integration development best practices. As of the 2023.6 series of releases, the integration does not work with Neon or OVOS running on the [Mycroft Mark 2](https://mycroft.ai/product/mark-ii/).
