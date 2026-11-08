@@ -26,11 +26,9 @@ This post covers what to pick, the full list of maintained plugins as of Novembe
 | Rare languages, or a voice from a description | [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | 600+ languages. Designs a voice from a text description or clones one from a clip. |
 | You don't mind the cloud | [Edge TTS](https://github.com/OpenVoiceOS/ovos-tts-plugin-edge-tts) | Microsoft's Edge voices. Fast and good, but needs the internet and isn't private. |
 
-Disclosure: Oscillate Labs maintains the Kokoro and Pocket TTS plugins. Kokoro is still marked as a proof of concept, with no API stability promise.
+Disclosure: Oscillate Labs maintains the Kokoro and Pocket TTS plugins. I use Kokoro every day.
 
-> **TODO (Mike):** Decide whether to keep Kokoro in "quick picks" while its README says "POC, may be abandoned." Your speech-servers post calls it the state of the art, so either update the README status or soften this row.
-
-> **TODO (Mike):** Add OmniVoice's hardware needs. Its README doesn't say whether it needs a GPU, and I haven't run it.
+OmniVoice runs on a CPU or a GPU. A GPU only makes it faster. It is a heavy install, though: PyTorch plus a multi-gigabyte model, and it generates speech in several diffusion steps. Run it on a server, not on a Pi.
 
 ## Moving from Piper
 
@@ -53,9 +51,9 @@ OVOS also provides [ovos-tts-server](https://github.com/OpenVoiceOS/ovos-tts-ser
 | Plugin | Notes |
 | --- | --- |
 | [phoonnx](https://github.com/TigreGotico/phoonnx) | The OVOS default and Piper's successor. Multilingual phonemization plus Piper, Matcha, GlowTTS, MMS, and other ONNX models. |
-| [Kokoro](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro) | hexgrad's 82M-parameter multilingual model. Needs `espeak-ng`. Proof-of-concept status. |
+| [Kokoro](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro) | hexgrad's 82M-parameter multilingual model. Needs `espeak-ng`. Sends timed visemes, so a Mark 1 mouth stays in sync with no G2P plugin. |
 | [Pocket TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-pocket-tts) | Kyutai's 100M-parameter, CPU-only model. Clones voices from audio samples. |
-| [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | k2-fsa's zero-shot model for 600+ languages. Picks a voice automatically, designs one from a text description, or clones a reference clip. |
+| [OmniVoice](https://github.com/OpenVoiceOS/ovos-tts-plugin-omnivoice) | k2-fsa's zero-shot model for 600+ languages. Picks a voice automatically, designs one from a text description, or clones a reference clip. CPU or GPU, and a Docker image is available. |
 | [Coqui](https://github.com/OpenVoiceOS/ovos-tts-plugin-coqui) | The Coqui company is gone, but this plugin is still maintained. Best with a GPU. |
 
 ### Lightweight and robotic

@@ -30,7 +30,7 @@ This post covers what to pick, the full list of maintained plugins as of Novembe
 
 My advice from 2024 still holds for the Raspberry Pi: don't run STT on the assistant itself. Run it on a bigger machine on your network and point the assistant at it. The [next section](#run-stt-on-a-server) shows how.
 
-> **TODO (Mike):** Does this still hold on a Pi 5? sherpa-onnx ships small Moonshine and Transducer models that may be usable on-device now. Test one, or keep the advice as written.
+I haven't tested a Pi 5. [sherpa-onnx](https://github.com/OpenVoiceOS/ovos-stt-plugin-sherpa-onnx) ships small Moonshine and Transducer models that may make on-device STT practical there. If you've tried them, tell me how it went.
 
 ## Run STT on a server
 
