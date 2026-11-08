@@ -36,6 +36,7 @@ OVOS and Neon are open-source voice assistants that run on hardware you own, wit
 
 - **[Kokoro TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro)** wires the 82M-parameter multilingual Kokoro model into OVOS.
 - **[Pocket TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-pocket-tts)** runs Kyutai's CPU-only TTS at about 6× real time on Apple Silicon, with voice cloning.
+- **[Audio8 TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-audio8)** clones a voice from one short clip with the 0.6B-parameter Audio8 model. A faster decode loop makes it faster than real time on an NVIDIA GPU or an Apple Silicon Mac.
 
 ### Dialog transformers
 

@@ -47,7 +47,7 @@ categories: ["personal voice assistant"]
 ## Speech on Apple Silicon
 
 - **STT on-device:** the CoreML plugin (80 pre-converted models) or whisper.cpp. Compare with sending audio to a speech server.
-- **TTS on-device:** Pocket TTS, about 6x real time on Apple Silicon, with voice cloning. Kokoro as the alternative.
+- **TTS on-device:** Pocket TTS, about 6x real time on Apple Silicon, with voice cloning. Kokoro as the alternative. For the best cloned voice, Audio8 on MPS: RTF 0.54 on an M3 Max, using about 4.7 GB of unified memory.
 - Link: the 2026 STT and TTS posts.
 
 > **TODO (Mike):** Which do you actually run: on-device, or the Mac as a client of your speech server? Real latency numbers from your machine would make this section.

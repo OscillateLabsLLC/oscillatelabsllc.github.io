@@ -21,7 +21,7 @@ categories: ["personal voice assistant"]
 
 - **Mycroft is gone; the community isn't.** Mark II owners still run OVOS on their devices (link: Mark II teardown post).
 - **The speech stack moved to ONNX.** onnx-asr (Parakeet) and phoonnx are the OVOS defaults. Runs well on a CPU (link: 2026 STT and TTS posts).
-- **Voices got good.** Kokoro, Pocket TTS, and OmniVoice sound natural. Voice cloning is now practical on a CPU.
+- **Voices got good.** Kokoro and Pocket TTS sound natural on a CPU. Voice cloning is practical too: Pocket TTS on a CPU, or Audio8 on a GPU or Apple Silicon.
 - **Intent matching got smarter.** Switchboard: 84% correct on real household traffic vs 42% for stock OVOS, and stays quiet on overheard speech (link: Switchboard post and eval repo).
 - **LLMs arrived, carefully.** Local LLMs for dialog (Ollama dialog transformer), with a deterministic path for things like unlocking doors (Doublecheck).
 - **Home Assistant became the hub.** HA Assist and the Wyoming protocol. OVOS can now serve STT/TTS to HA, and the HA skill/Neon Hub integration covers the other direction.
