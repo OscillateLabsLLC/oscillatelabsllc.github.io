@@ -13,7 +13,7 @@ categories: ["home automation", "personal voice assistant"]
 ---
 
 {{< alert >}}
-**Archived (2023).** Some steps here are out of date. [ovos-installer](https://github.com/OpenVoiceOS/ovos-installer) now supports macOS natively.
+**Archived (2023).** Some steps here are out of date. For the current setup, see [My Mac Voice Assistant Setup in 2026](/posts/mac-voice-assistant-setup-2026/).
 {{< /alert >}}
 
 I've written quite a few posts already about configuring different aspects of [Neon.AI](https://neon.ai), a private, open source voice assistant built on top of [OpenVoiceOS (OVOS)](https://openvoiceos.com). However, all of those posts assume you already have a device running one of those platforms. In this post, I'll walk through the process of setting up a Mac to run OVOS. This is a great way to get started with OVOS if you don't have a Raspberry Pi or other device available, or you just want to take advantage of the great processing power available on a Mac.

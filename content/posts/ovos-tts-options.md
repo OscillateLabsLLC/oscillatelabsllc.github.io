@@ -16,7 +16,7 @@ categories: ["home automation", "personal voice assistant"]
 ---
 
 {{< alert >}}
-**Archived (2024).** Some steps here are out of date. For current setup, see [Self-Hosted Speech Servers](/posts/ovos-speech-servers/).
+**Archived (2024).** Some steps here are out of date. For current options, see [TTS Options for OpenVoiceOS in 2026](/posts/tts-options-ovos-2026/).
 {{< /alert >}}
 
 [OpenVoiceOS, or OVOS,](https://openvoiceos.com) provides a flexible plugin system for text-to-speech (TTS) synthesis. This system allows you to choose the TTS engine that best suits your needs, whether you prioritize voice quality, speed, privacy, or language support.

@@ -16,7 +16,7 @@ categories: ["home automation", "personal voice assistant"]
 ---
 
 {{< alert >}}
-**Archived (2024).** Some steps here are out of date. For current setup, see [Self-Hosted Speech Servers](/posts/ovos-speech-servers/).
+**Archived (2024).** Some steps here are out of date. For current options, see [STT Options for OpenVoiceOS in 2026](/posts/stt-options-ovos-2026/).
 {{< /alert >}}
 
 [OpenVoiceOS, or OVOS,](https://openvoiceos.com) is the spiritual successor (and fork) to the Mycroft voice assistant. It is a privacy-focused, open-source voice assistant that you can run on your own hardware. OVOS has a plugin system that allows you to swap out the default speech-to-text (STT) engine for one that you prefer.
