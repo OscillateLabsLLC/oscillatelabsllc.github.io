@@ -36,6 +36,7 @@ OVOS and Neon are open-source voice assistants that run on hardware you own, wit
 
 - **[Kokoro TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-kokoro)** wires the 82M-parameter multilingual Kokoro model into OVOS.
 - **[Pocket TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-pocket-tts)** runs Kyutai's CPU-only TTS at about 6× real time on Apple Silicon, with voice cloning.
+- **[Audio8 TTS](https://github.com/OscillateLabsLLC/ovos-tts-plugin-audio8)** clones a voice from one short clip with the 0.6B-parameter Audio8 model. A faster decode loop makes it faster than real time on an NVIDIA GPU or an Apple Silicon Mac.
 
 ### Dialog transformers
 
@@ -47,6 +48,7 @@ OVOS and Neon are open-source voice assistants that run on hardware you own, wit
 - **[Visage](https://github.com/OscillateLabsLLC/ovos-visage)** is a browser GUI for OVOS in the style of the 2018 Mycroft Mark II Kickstarter concept.
 - **[Virtual Mark 1](https://github.com/OscillateLabsLLC/ovos-virtual-mark1)** recreates the Mycroft Mark 1 faceplate in software: an emulated Arduino and a browser display.
 - **[Skill config tool](https://github.com/OscillateLabsLLC/ovos-skill-config-tool)** is a web UI for configuring OVOS and Neon skills.
+- **[ovos-mac-control](https://github.com/OscillateLabsLLC/ovos-mac-control)** adds one-command on/off, a menubar switch, and upgrade-safe config to a native OVOS install on macOS.
 - More skills and plugins are on [GitHub](https://github.com/OscillateLabsLLC?q=ovos).
 
 ## AI agent infrastructure
